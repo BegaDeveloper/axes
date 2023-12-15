@@ -1,0 +1,41 @@
+<div class="main-opened mt-5">
+  <div class="align-recently-opened">
+    <div class="title">
+      <h3 class="blue-text">Recently opened</h3>
+    </div>
+    <div class="main-content justify-center">
+      <div class="card-flex">
+        @for (item of recentlyOpenedCards; track $index) {
+        <mat-card>
+          <mat-card-content>
+            <div class="card-opened">
+              <div class="text">
+                <p class="blue-text">{{ item }}</p>
+              </div>
+              <div>
+                <span
+                  class="material-symbols-outlined pointer"
+                  [matMenuTriggerFor]="menu"
+                >
+                  more_vert
+                </span>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item class="align-center">
+            <span class="material-symbols-outlined"> bookmark_added </span>
+            <span>LinkWatch</span>
+          </button>
+
+          <button mat-menu-item class="align-center">
+            <span class="material-symbols-outlined"> language </span>
+            <span>Web Research</span>
+          </button>
+        </mat-menu>
+        }
+      </div>
+    </div>
+  </div>
+</div>

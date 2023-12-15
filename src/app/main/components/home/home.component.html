@@ -1,0 +1,86 @@
+<div class="home">
+  <div class="nav-context align-center">
+    <div class="navigation">
+      <p class="text-center pt-3">Choose your context</p>
+      <mat-button-toggle-group
+        id="context-menu"
+        name="fontStyle"
+        aria-label="Font Style"
+      >
+        <mat-button-toggle value="general">General</mat-button-toggle>
+        <mat-button-toggle value="sales">Sales Proposal</mat-button-toggle>
+        <mat-button-toggle value="research">Research</mat-button-toggle>
+        <mat-button-toggle value="leadership"
+          >Thought Leadership</mat-button-toggle
+        >
+      </mat-button-toggle-group>
+    </div>
+  </div>
+  <!---Serach bar--->
+  <div class="search-div align-center justify-center mt-5" id="main-serach-div">
+    <div>
+      <mat-form-field
+        id="search"
+        appearance="outline"
+        class="search justify-center"
+      >
+        <mat-label>Ask me anything...</mat-label>
+        <input
+          matInput
+          placeholder="Ask me anything..."
+          [matAutocomplete]="auto"
+          [formControl]="searchControl"
+        />
+        <input type="file" #fileInput style="display: none" />
+        <div matSuffix class="search-icons">
+          <span
+            class="material-symbols-outlined pointer"
+            (click)="fileInput.click()"
+          >
+            attach_file
+          </span>
+          &nbsp;
+          <span
+            class="material-symbols-outlined pointer"
+            (click)="openAppsDropdown()"
+          >
+            apps
+          </span>
+        </div>
+      </mat-form-field>
+      <mat-autocomplete #auto="matAutocomplete">
+        @if(appsDropdownOpened){
+        <div>
+          <button
+            class="autocomplete-buttons"
+            mat-button
+            *ngFor="let button of buttons"
+            [class.active]="isActiveButton(button)"
+            [ngStyle]="getButtonStyle(button)"
+            (click)="setActiveButton(button)"
+          >
+            @if(isActiveButton(button)){
+            <mat-icon> done </mat-icon>} {{ button }}
+          </button>
+        </div>
+        <mat-divider class="mt-2"></mat-divider>
+        <mat-option disabled> <b>Sales Proposal Shortcuts</b> </mat-option>
+        } @for (option of filteredOptions | async; track $index) {
+        <mat-option [value]="option">
+          {{ option }}
+        </mat-option>
+        }
+      </mat-autocomplete>
+    </div>
+    <div class="send-div">
+      <div class="send">
+        <span class="material-symbols-outlined pointer" (click)="sendMessage()">
+          send
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!--Recently opened-->
+  <app-recently-opened></app-recently-opened>
+</div>

@@ -1,0 +1,34 @@
+.main-toolbar {
+  mat-toolbar {
+    .flex {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      .title-res {
+        p {
+          font-weight: 400;
+          margin: 0;
+        }
+      }
+      .profile-side {
+        display: flex;
+        gap: 25px;
+        align-items: center;
+        .shared-div {
+          button {
+            background: #1457d9;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            height: 30px;
+          }
+        }
+        .notf {
+          span {
+            font-size: 30px;
+          }
+        }
+      }
+    }
+  }
+}

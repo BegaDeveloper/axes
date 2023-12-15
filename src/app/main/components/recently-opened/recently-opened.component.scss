@@ -1,0 +1,22 @@
+.main-opened {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .align-recently-opened {
+    width: 750px;
+    .main-content {
+      .card-flex {
+        display: flex;
+        gap: 15px;
+        mat-card {
+          background: #f3f7fc !important;
+          mat-card-content {
+            .card-opened {
+              display: flex;
+            }
+          }
+        }
+      }
+    }
+  }
+}
